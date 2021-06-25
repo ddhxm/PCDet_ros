@@ -1,0 +1,10 @@
+<launch>
+   
+
+    <node name="pvrcnn_ros_node" pkg="pvrcnn_ros_node" type="detect.py">
+    
+        <rosparam command="load" 
+            file="$(find pvrcnn_ros_node)/reconfigure/detection_thresholds.yml" />
+    </node>
+
+</launch>
