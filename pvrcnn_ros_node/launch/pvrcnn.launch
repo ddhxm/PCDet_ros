@@ -1,0 +1,19 @@
+<launch>
+    <arg name="pointcloud" default="velodyne_points" />
+    <arg name="objects" default="lidar_objects" />
+
+    <arg name="config_path" default="$(find pvrcnn_ros_node)/cfgs/kitti_models/pv_rcnn.yaml" />
+    <arg name="model_path" default="$(find pvrcnn_ros_node)/models/pointpillar_7728.pth" />
+
+    <node name="pvrcnn_ros_node" pkg="pvrcnn_ros_node" type="single_inference_tracking.py">
+        <remap from="pointcloud" to="$(arg pointcloud)" />
+        <remap from="objects" to="$(arg objects)" />
+
+        <param name="config_path" value="$(arg config_path)" />
+        <param name="model_path" value="$(arg model_path)" />
+
+        <rosparam command="load" 
+            file="$(find pvrcnn_ros_node)/reconfigure/detection_thresholds.yml" />
+    </node>
+
+</launch>

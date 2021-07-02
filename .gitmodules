@@ -1,0 +1,13 @@
+[submodule "spconv"]
+	path = spconv
+	url = https://github.com/traveller59/spconv.git
+[submodule "lidar_objects_msgs"]
+	path = lidar_objects_msgs
+	url = https://gitlab.com/sdbcs-nio3/common/ros_custom_msgs/lidar_objects_msgs.git
+[submodule "ros_numpy"]
+	path = ros_numpy
+	url = https://github.com/eric-wieser/ros_numpy.git
+[submodule "OpenPCDet"]
+	path = OpenPCDet
+	url = https://github.com/open-mmlab/OpenPCDet.git
+	branch = master
