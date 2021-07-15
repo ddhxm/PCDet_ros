@@ -1,12 +1,15 @@
 # PCDet_Infernece
-此节点主要用于实现基于激光雷达的目标检测，此框架是基于OpenPCDet封装到ros上。本项目的硬件环境：NVIDIA GTX3070，pandar64 软件环境：Ubuntu18.04，ros-melodic，python3.6，pytorch1.8.1+cu111
+此节点主要用于实现基于激光雷达的目标检测，此框架是基于OpenPCDet封装到ros上。
+硬件环境：NVIDIA GTX3070，pandar64 
+软件环境：Ubuntu18.04，ros-melodic，python3.6，pytorch1.8.1+cu111
+
 OpenPCDet的安装参考其INSTALL.md：参照home目录下的OpenPCDet
 1.  终端输入git clone --recursive https://github.com/open-mmlab/OpenPCDet.git
-2.  pip3 install -r requirements.txt,此处注意其内部要求的torch版本，需与本机的cuda类型相对应，直接通过pip3建立的torch有可能与cuda不匹配，因此，建议先行安装cuda对应版本的torch，并将requirements.txt中的torch版本要求去除，再进行安装。
-3.  同时，按照要求编译spconv包，参考此链接下版本要求：cmake >= 3.13.2
+2.  pip3 install -r requirements.txt,此处注意其内部要求的torch版本，需与本机的cuda类型相对应，例如，本项目使用NVIDIA GTX3070，由于其驱动等限制，CUDA只能使用11以上的版本，安装的torch版本与cuda版本不匹配，会出现无法使用GPU加速的情况，因此，请大家确定好环境版本，再进行安装。若直接通过命令行pip3 requirements.txt建立的torch有可能与cuda不匹配，因此，建议先行安装cuda对应版本的torch，并将requirements.txt中的torch版本要求去除，再进行安装。
+3.  按照要求编译spconv包，参考此链接下版本要求：cmake >= 3.13.2
 git clone --recursive https://github.com/traveller59/spconv
 若torch>=1.0，则输入python setup.py bdist_wheel
-cd ./dist, 并pip XXX.whl进行安装
+cd ./dist, 并pip XXX.whl进行安装spconv
 4. sudo python3 setup.py develop安装OpenPCDet
 注： 在编译过程中可能遇到llvm、llvmlite和numba安装问题，安装numba要求llvm>9.0,若环境中llvm达不到要求，直接下载编译好llvm的ubuntu的库，命令行增加LLVM_CONFIG=安装路径，并pip3 install llvmlite==0.36.0
 pip3 install numba报错tbb，版本过低，GitHub安装最新版本，编译通过，安装成功。
