@@ -1,5 +1,5 @@
 # PCDet_Infernece
-此节点主要用于实现基于激光雷达的目标检测，此框架是基于OpenPCDet封装到ros上。
+此节点主要用于实现基于激光雷达的目标检测，此框架是基于OpenPCDet封装到ros上。本项目的硬件环境：NVIDIA GTX3070，pandar64 软件环境：Ubuntu18.04，ros-melodic，python3.6，pytorch1.8.1+cu111
 OpenPCDet的安装参考其INSTALL.md：参照home目录下的OpenPCDet
 1.  终端输入git clone --recursive https://github.com/open-mmlab/OpenPCDet.git
 2.  pip3 install -r requirements.txt,此处注意其内部要求的torch版本，需与本机的cuda类型相对应，直接通过pip3建立的torch有可能与cuda不匹配，因此，建议先行安装cuda对应版本的torch，并将requirements.txt中的torch版本要求去除，再进行安装。
