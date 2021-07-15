@@ -11,8 +11,8 @@ git clone --recursive https://github.com/traveller59/spconv
 若torch>=1.0，则输入python setup.py bdist_wheel
 cd ./dist, 并pip XXX.whl进行安装spconv
 4. sudo python3 setup.py develop安装OpenPCDet
-注： 在编译过程中可能遇到llvm、llvmlite和numba安装问题，安装numba要求llvm>9.0,若环境中llvm达不到要求，直接下载编译好llvm的ubuntu的库，命令行增加LLVM_CONFIG=安装路径，并pip3 install llvmlite==0.36.0
-pip3 install numba报错tbb，版本过低，GitHub安装最新版本，编译通过，安装成功。
+注： 在编译过程中可能遇到llvm、llvmlite和numba安装问题，安装numba要求llvm>9.0,若环境中llvm达不到要求，直接下载编译好llvm的ubuntu的库，https://releases.llvm.org/download.html ，下载此链接中对应版本的的Pre-Built Binaries，同时，在终端输入命令行时，增加LLVM_CONFIG=安装路径，并pip3 install llvmlite==0.36.0，即可成功安装llvmlite；
+在pip3 install numba的过程中可能报错tbb，这是由于tbb版本过低，可在GitHub安装最新tbb版本，按指示编译通过，安装numba成功。
 
 目录梳理：
 	此文件夹下主要文件夹为lidar_objects_msgs,其主要为自定义的检测目标消息，pvrcnn_ros_node为节点相关，其目录内的src文件夹中包含detect.py文件，为kitti连续帧的检测结果，包括在rviz中的可视化，目前的激光雷达目标检测还只是基于kitti数据集进行，还未实时在现实环境中检测，对于后者，需要更改detect.py文件中的数据读入方式，此部分后续进行更新。
